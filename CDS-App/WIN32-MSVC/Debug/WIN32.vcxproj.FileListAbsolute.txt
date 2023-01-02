@@ -1,0 +1,3 @@
+E:\UNI STUTTGART\REPOS\exercise_02\FreeRTOS\FBS-App\WIN32-MSVC\Debug\FBS-App.exe
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\RMA-App\WIN32-MSVC\Debug\RMA-App.exe
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\Debug\CDS-App.exe

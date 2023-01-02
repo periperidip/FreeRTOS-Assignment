@@ -1,0 +1,28 @@
+﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  main_exercise.c
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(82,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(83,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(84,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(85,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(86,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(87,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(88,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(89,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(90,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(91,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(92,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(93,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(94,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(95,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(96,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(97,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(98,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(99,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(100,2): warning C4113: 'void (__cdecl *)(void *)' differs in parameter lists from 'void (__cdecl *)(void)'
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(134,51): warning C4244: 'initializing': conversion from 'const uint32_t' to 'uint16_t', possible loss of data
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(115,28): warning C4100: 'taskParameters': unreferenced formal parameter
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(158,23): warning C4100: 'taskParameters': unreferenced formal parameter
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(174,23): warning C4100: 'taskParameters': unreferenced formal parameter
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(190,23): warning C4100: 'taskParameters': unreferenced formal parameter
+D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\main_exercise.c(206,23): warning C4100: 'taskParameters': unreferenced formal parameter
+  WIN32.vcxproj -> D:\Work\Studies\RTCES\Exercises\Extra Assignment\FreeRTOS\CDS-App\WIN32-MSVC\Debug\CDS-App.exe
