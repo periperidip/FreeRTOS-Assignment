@@ -152,7 +152,7 @@ void t1_routine(void* taskParameters) {
 			printf("====Initialisation====\n");
 
 		t1_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T1] Current cycle: %llu | T1 curent tick %d\n", t1_counter, t1_lastWakeUpTime);
+		printf("[T1] Current Cycle: %llu | [T1] Current Tick %d\n", t1_counter, t1_lastWakeUpTime);
 
 		/* Next job of the task delayed until current time plus the period */
 		vTaskDelayUntil(&t1_lastWakeUpTime, t1_period);
@@ -168,12 +168,13 @@ void t2_routine(void* taskParameters) {
 		++t2_counter;
 
 		t2_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T2] Current cycle: %llu | T2 curent tick %d\n", t2_counter, t2_lastWakeUpTime);
+		printf("[T2] Current Cycle: %llu | [T2] Current Tick %d\n", t2_counter, t2_lastWakeUpTime);
 		
 		if (t2_counter != 1) {
 			printf("===============================================\n");
 			printf("All jobs from Cycle %llu finished\n\n", t2_counter);
 		}
+
 		vTaskDelayUntil(&t2_lastWakeUpTime, t2_period);
 	}
 }
@@ -187,7 +188,7 @@ void t3_routine(void* taskParameters) {
 		++t3_counter;
 		t3_lastWakeUpTime = xTaskGetTickCount();
 
-		printf("[T3] Current cycle: %llu | T3 curent tick %d\n", t3_counter, t3_lastWakeUpTime);
+		printf("[T3] Current Cycle: %llu | [T3] Current Tick %d\n", t3_counter, t3_lastWakeUpTime);
 
 		vTaskDelayUntil(&t3_lastWakeUpTime, t3_period);
 	}
@@ -202,7 +203,7 @@ void t4_routine(void* taskParameters) {
 		++t4_counter;
 
 		t4_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T4] Current cycle: %llu | T4 curent tick %d\n", t4_counter, t4_lastWakeUpTime);
+		printf("[T4] Current Cycle: %llu | [T4] Current Tick %d\n", t4_counter, t4_lastWakeUpTime);
 
 		vTaskDelayUntil(&t4_lastWakeUpTime, t4_period);
 	}
@@ -217,7 +218,7 @@ void t5_routine(void* taskParameters) {
 		++t5_counter;
 
 		t5_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T5] Current cycle: %llu | T5 curent tick %d\n", t5_counter, t5_lastWakeUpTime);
+		printf("[T5] Current Cycle: %llu | [T5] Current Tick %d\n", t5_counter, t5_lastWakeUpTime);
 
 		if (t5_counter == 1)
 			printf("======================\n\n");
