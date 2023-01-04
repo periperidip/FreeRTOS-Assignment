@@ -79,25 +79,25 @@ void cyclic_executer(void* taskParameters);
 const CDS_job_set job_set[JOB_COUNT] =
 {
 	/* START TIME, EXECUTION TIME, ROUTINE */
-	{1U,		   10U,			   &t1_routine},
-	{11U,		   12U,			   &t4_routine},
-	{23U,		   15U,			   &t3_routine},
-	{38U,		   11U,			   &t2_routine},
-	{101U,		   10U,			   &t1_routine},
-	{111U,		   12U,			   &t4_routine},
-	{151U,		   15U,			   &t3_routine},
-	{201U,		   10U,			   &t1_routine},
-	{211U,		   12U,			   &t4_routine},
-	{223U,		   11U,			   &t2_routine},
-	{301U,		   10U,			   &t1_routine},
-	{311U,		   12U,			   &t4_routine},
-	{323U,		   15U,			   &t3_routine},
-	{401U,		   10U,			   &t1_routine},
-	{411U,		   12U,			   &t4_routine},
-	{423U,		   11U,			   &t2_routine},
-	{451U,		   15U,			   &t3_routine},
-	{501U,		   10U,			   &t1_routine},
-	{511U,		   12U,			   &t4_routine},
+	{0U,		   10U,			   &t1_routine},
+	{10U,		   12U,			   &t4_routine},
+	{22U,		   15U,			   &t3_routine},
+	{37U,		   11U,			   &t2_routine},
+	{100U,		   10U,			   &t1_routine},
+	{110U,		   12U,			   &t4_routine},
+	{150U,		   15U,			   &t3_routine},
+	{200U,		   10U,			   &t1_routine},
+	{210U,		   12U,			   &t4_routine},
+	{222U,		   11U,			   &t2_routine},
+	{300U,		   10U,			   &t1_routine},
+	{310U,		   12U,			   &t4_routine},
+	{322U,		   15U,			   &t3_routine},
+	{400U,		   10U,			   &t1_routine},
+	{410U,		   12U,			   &t4_routine},
+	{422U,		   11U,			   &t2_routine},
+	{450U,		   15U,			   &t3_routine},
+	{500U,		   10U,			   &t1_routine},
+	{510U,		   12U,			   &t4_routine},
 };
 
 void main_exercise(void) {
@@ -122,6 +122,9 @@ void cyclic_executer(void* taskParameters) {
 									 job_set[i].t_exec);
 			uint64_t next_job_start = 0;
 			
+			/* As soon as we reach the last job of one hyperperiod,
+			 * we increase the iteration by one.
+			 */
 			if (i == JOB_COUNT - 1)
 				iter++;
 
@@ -131,13 +134,15 @@ void cyclic_executer(void* taskParameters) {
 			job_set[i].task_routine();
 
 			if (curr_job_end < next_job_start) {
-				uint16_t delay = (job_set[i + 1].t_rel_start) -
-								 (job_set[i].t_rel_start +
-								  job_set[i].t_exec);
+				uint16_t delay = next_job_start - curr_job_end;
 				/*
 				 * Cyclic executer sleeps until it is time to execute another
 				 * task. It sleeps for the time difference between the end of
 				 * current job and the start of the next.
+				 * 
+				 * Additionally, there is a delay of 1 tick at the start of
+				 * the schedule, most likely accounting for the setup of the
+				 * run-through of the schedule.
 				 */
 				vTaskDelay(delay);
 
@@ -166,6 +171,16 @@ void t1_routine(void* taskParameters) {
 
 		printf("[T1] Current Tick %d\n", t1_lastWakeUpTime);
 
+		/*
+		 * Since the actual task Ti isn't itself executing like in the case
+		 * of the RMA schedule in Task 1, the call 'vTaskDelayUntil()' in
+		 * fact delays the 'cyclic_executor()' function for the execution
+		 * time of the task Ti in question.
+		 * 
+		 * Though, one thing to keep in mind is that the for any task, the
+		 * routine 'ti_routine()' is invoked in accordance with the schedule
+		 * 'job_set'.
+		 */
 		vTaskDelayUntil(&t1_lastWakeUpTime, t1_exec);
 		break;
 	}
