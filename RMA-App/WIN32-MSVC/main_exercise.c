@@ -89,7 +89,7 @@ void main_exercise(void) {
 	 * Initialise the properties of each task. The periods, deadlines and
 	 * execution times have been defined below solely for documentation
 	 * and code clarity purposes. The actual definitions are in the
-	 * respective task routines 'ti_routine' as parameters of
+	 * respective task routines 'ti_routine' and are used as parameters to
 	 * 'vTaskDelayUntil()'.
 	 */
 	task_set[0].t_id = 1;
@@ -127,7 +127,18 @@ void main_exercise(void) {
 	task_set[4].t_exec = 12U;
 	task_set[0].t_priority = 3;
 
-	/* Create tasks for the FreeRTOS scheduler */
+	/*
+	 * Create tasks for the FreeRTOS scheduler. Even though we manually
+	 * create the tasks, there is very little control of the actual run-time
+	 * schedule of the task set. The only things we decide are the running
+	 * orders (priorities) and the frequency (period) of each job of the task
+	 * set.
+	 * 
+	 * Contrary to the setup in Task 2 for Clock Driven Scheduling where
+	 * one could control the exact execution order and the duration of each
+	 * and every job, here, as pointed out by Prof Dürr, we have little control
+	 * over what happens.
+	 */
 	for (int task = 0; task < TASK_COUNT; task++)
 		xTaskCreate(task_set[task].task_routine, "Task " + (task + 1),
 					configMINIMAL_STACK_SIZE,
@@ -152,9 +163,14 @@ void t1_routine(void* taskParameters) {
 			printf("====Initialisation====\n");
 
 		t1_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T1] Current Cycle: %llu | [T1] Current Tick %d\n", t1_counter, t1_lastWakeUpTime);
+		printf("[T1] Current Cycle: %llu | [T1] Current Tick %d\n",
+			   t1_counter, t1_lastWakeUpTime);
 
-		/* Next job of the task delayed until current time plus the period */
+		/*
+		 * Next job of the task delayed until current time plus the period.
+		 * Unlike the CDS 'vTaskDelayUntil()' function call, here we delay (in
+		 * this case), T1 by its period.
+		 */
 		vTaskDelayUntil(&t1_lastWakeUpTime, t1_period);
 	}
 }
@@ -168,7 +184,8 @@ void t2_routine(void* taskParameters) {
 		++t2_counter;
 
 		t2_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T2] Current Cycle: %llu | [T2] Current Tick %d\n", t2_counter, t2_lastWakeUpTime);
+		printf("[T2] Current Cycle: %llu | [T2] Current Tick %d\n",
+			   t2_counter, t2_lastWakeUpTime);
 		
 		if (t2_counter != 1) {
 			printf("===============================================\n");
@@ -188,7 +205,8 @@ void t3_routine(void* taskParameters) {
 		++t3_counter;
 		t3_lastWakeUpTime = xTaskGetTickCount();
 
-		printf("[T3] Current Cycle: %llu | [T3] Current Tick %d\n", t3_counter, t3_lastWakeUpTime);
+		printf("[T3] Current Cycle: %llu | [T3] Current Tick %d\n",
+			   t3_counter, t3_lastWakeUpTime);
 
 		vTaskDelayUntil(&t3_lastWakeUpTime, t3_period);
 	}
@@ -203,7 +221,8 @@ void t4_routine(void* taskParameters) {
 		++t4_counter;
 
 		t4_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T4] Current Cycle: %llu | [T4] Current Tick %d\n", t4_counter, t4_lastWakeUpTime);
+		printf("[T4] Current Cycle: %llu | [T4] Current Tick %d\n",
+			   t4_counter, t4_lastWakeUpTime);
 
 		vTaskDelayUntil(&t4_lastWakeUpTime, t4_period);
 	}
@@ -218,7 +237,8 @@ void t5_routine(void* taskParameters) {
 		++t5_counter;
 
 		t5_lastWakeUpTime = xTaskGetTickCount();
-		printf("[T5] Current Cycle: %llu | [T5] Current Tick %d\n", t5_counter, t5_lastWakeUpTime);
+		printf("[T5] Current Cycle: %llu | [T5] Current Tick %d\n",
+			   t5_counter, t5_lastWakeUpTime);
 
 		if (t5_counter == 1)
 			printf("======================\n\n");
